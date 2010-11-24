@@ -9,7 +9,9 @@ Install `default-url-options-for-mailers` as a gem.
 ## Usage
 Here is a sample initializer.
 
-     # your_rails_app/config/initializers/pivotal_initializers.rb
+     
+# your_rails_app/config/initializers/pivotal_initializers.rb
+	 require "default_url_options_for_mailers"
      PivotalCore::Initializer::DefaultUrlOptionsForMailers.run do |config|
        # *** Use this line to automatically derive protocol/host/port using incoming rails request:
        # PivotalCore::Initializer::DefaultUrlOptionsForMailers.run

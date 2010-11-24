@@ -12,9 +12,11 @@ Here is a sample initializer.
      # your_rails_app/config/initializers/pivotal_initializers.rb
 
 	 require "default_url_options_for_mailers"
+	
      PivotalCore::Initializer::DefaultUrlOptionsForMailers.run do |config|
+       PivotalCore::Initializer::DefaultUrlOptionsForMailers.run
+
        # *** Use this line to automatically derive protocol/host/port using incoming rails request:
-       # PivotalCore::Initializer::DefaultUrlOptionsForMailers.run
        # config.action_controller.default_url_options_for_mailers = :infer_url_options
 
        # *** Use this line to explicitly set protocol/host/port:

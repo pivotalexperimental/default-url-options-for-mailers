@@ -47,5 +47,18 @@ Gem::Specification.new do |s|
     "spec/rails_app/test/test_helper.rb",
     "spec/spec_helper.rb"
   ]
+
+  if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
+    s.specification_version = 3
+
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rails>, ["~> 2.3.8"])
+    else
+      s.add_dependency(%q<rails>, ["~> 2.3.8"])
+    end
+  else
+    s.add_dependency(%q<rails>, ["~> 2.3.8"])
+  end
 end
 

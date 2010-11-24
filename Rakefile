@@ -5,6 +5,13 @@ task :spec do |t|
   system "spec/runner spec"
 end
 
+task :install_test_gems do |t|
+  system "gem install rails -v2.3.8 --no-rdoc --no-ri"
+  system "gem install rspec-rails -v1.3.3 --no-rdoc --no-ri"
+  system "gem install sqlite3-ruby -v1.3.2 --no-rdoc --no-ri"
+  system "gem install jeweler -v1.5.1 --no-rdoc --no-ri"
+end
+
 begin
   require "jeweler"
   Jeweler::Tasks.new do |gem|
@@ -19,4 +26,5 @@ begin
   end
 rescue
   puts "Jeweler or one of its dependencies is not installed."
+  puts "To run specs, run `rake install_test_gems`"
 end

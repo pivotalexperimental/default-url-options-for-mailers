@@ -28,15 +28,13 @@ Here is a sample initializer.
 To initialize properly, this gem requires Rails 2.3.8 or above.
 
 ## Running Tests and Build Dependencies
-Below is a sample Gemfile used to create and test this gem.
+To run the tests and/or build the gem:
 
-     # Gemfile
-     source "http://rubygems.org"
-     
-     gem "rails", "2.3.8"
-     gem "rspec-rails", "1.3.3"
-     gem "sqlite3-ruby", "1.3.2"
-     gem "jeweler", "1.5.1"
+     gem install jeweler -v1.5.1 --no-rdoc --no-ri
+
+Then
+
+     rake install_test_gems
 
 ## MIT License
 

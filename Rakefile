@@ -1,20 +1,8 @@
-require 'rubygems'
-require 'rake'
-require "spec"
-require "spec/autorun"
-#require 'spec/rails'
-
-#require 'rspec'
-#require 'rspec/core'
-#require 'rspec/core/rake_task'
-
 task :default => :spec
 
-desc "Run all specs in spec directory (excluding plugin specs)"
-task :default do |t|
+desc "Run all specs in spec directory"
+task :spec do |t|
   system "spec/runner spec"
-#  t.rspec_opts = ["-c", "-f progress", "-r ./spec/spec_helper.rb"]
-#  t.pattern = 'spec/**/*_spec.rb'
 end
 
 begin

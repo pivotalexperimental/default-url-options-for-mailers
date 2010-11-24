@@ -31,10 +31,13 @@ To initialize properly, this gem requires Rails 2.3.8 or above.
 To run the tests and/or build the gem:
 
      gem install jeweler -v1.5.1 --no-rdoc --no-ri
-
-Then
-
      rake install_test_gems
+
+To run tests:
+
+     rake
+     # or
+     rake spec
 
 ## MIT License
 

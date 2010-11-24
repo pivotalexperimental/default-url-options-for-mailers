@@ -9,7 +9,7 @@ begin
   require "jeweler"
   Jeweler::Tasks.new do |gem|
     gem.name = "default-url-options-for-mailers"
-    gem.summary = ""
+    gem.summary = "Default or infer the :protocol, :host, and :port values for ActionMailer"
     gem.description = ""
     gem.email = "pivotal-opensource@googlegroups.com"
     gem.homepage = "http://github.com/pivotal/default-url-options-for-mailers"

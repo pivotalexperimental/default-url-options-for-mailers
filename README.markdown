@@ -1,13 +1,31 @@
-## DefaultUrlOptionsForMailers
+## Overview
+`default-url-options-for-mailers` allows us to set or infer `ActionController::Base.default_url_options` within the context of a `ActionMailer` deliver event.
+
+This functionality is inspired by [How I Learned to Stop Hating and Love Action Mailer](http://pivotallabs.com/users/nick/blog/articles/281-how-i-learned-to-stop-hating-and-love-action-mailer "nick - How I Learned to Stop Hating and Love Action Mailer").  Quoting from that post heavily, `ActionMailer` makes it difficult to generate URL's. It's common enough when sending an email that it includes a link. But `ActionMailer`, by default, gives you no access to `url_for` or named routes.  One solution to this is to manually set `ActionController::Base.default_url_options`, but this is a global change and would affect all Controller actions.  Also, it is often preferable to have these values be inferred from the local environment.  `default-url-options-for-mailers` allows for setting or inferring these values within the context of a mail-sending action.
 
 ## Installation
 Install `default-url-options-for-mailers` as a gem.
 
 ## Usage
+Here is a sample initializer.
 
+     # your_rails_app/config/initializers/pivotal_initializers.rb
+     PivotalCore::Initializer::DefaultUrlOptionsForMailers.run do |config|
+       # *** Use this line to automatically derive protocol/host/port using incoming rails request:
+       # PivotalCore::Initializer::DefaultUrlOptionsForMailers.run
+       # config.action_controller.default_url_options_for_mailers = :infer_url_options
+
+       # *** Use this line to explicitly set protocol/host/port:
+       # config.action_controller.default_url_options_for_mailers = { :protocol => "http", :host => "example.com", :port => 3333 }
+
+       # *** Comment out both lines to disable any default URL option functionality for mailers.
+
+       # *** NOTE: ActionMailer::Base.default_url_options always takes precedence over this facility and if *any* options are
+       # *** set there, default_url_options_for_mailers does nothing.
+     end
 
 ## Requirements
-To initialize properly, this gem requires Rails 3.0 or above.
+To initialize properly, this gem requires Rails 2.3.8 or above.
 
 ## Running Tests and Build Dependencies
 Below is a sample Gemfile used to create and test this gem.
@@ -15,9 +33,9 @@ Below is a sample Gemfile used to create and test this gem.
      # Gemfile
      source "http://rubygems.org"
      
-     gem "rails", "3.0.3"
+     gem "rails", "2.3.8"
+     gem "rspec-rails", "1.3.3"
      gem "sqlite3-ruby", "1.3.2"
-     gem "rspec-rails", "2.1.0"
      gem "jeweler", "1.5.1"
 
 ## MIT License
